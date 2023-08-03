@@ -334,7 +334,7 @@ function animate() {
   player.update();
   if (keys.right.pressed && player.position.x < 400) {
     player.velocity.x = player.speed;
-  } else if (keys.left.pressed && player.position.x > 100) {
+  } else if (keys.left.pressed && player.position.x > 100 || keys.left.pressed && scrollOffset === 0 && player.position.x > 0) {
     player.velocity.x = -player.speed;
   } else {
     player.velocity.x = 0;
@@ -346,7 +346,7 @@ function animate() {
       genericObjects.forEach(function (genericObject) {
         genericObject.position.x -= player.speed * 0.66;
       });
-    } else if (keys.left.pressed) {
+    } else if (keys.left.pressed && scrollOffset > 0) {
       scrollOffset -= player.speed;
       platforms.forEach(function (platform) {
         platform.position.x += player.speed;
@@ -367,7 +367,7 @@ function animate() {
   // win condition
   if (scrollOffset > platformImage.width * 5 + 300 - 2) {
     var _console;
-    /* eslint-disable */(_console = console).log.apply(_console, _toConsumableArray(oo_oo("8a6d7e36_0", "you win")));
+    /* eslint-disable */(_console = console).log.apply(_console, _toConsumableArray(oo_oo("896d9666_0", "you win")));
   }
 
   // lose condition
@@ -382,18 +382,18 @@ addEventListener("keydown", function (_ref3) {
   var keyCode = _ref3.keyCode;
   switch (keyCode) {
     case 65:
-      /* eslint-disable */(_console2 = console).log.apply(_console2, _toConsumableArray(oo_oo("8a6d7e36_1", "left")));
+      /* eslint-disable */(_console2 = console).log.apply(_console2, _toConsumableArray(oo_oo("896d9666_1", "left")));
       keys.left.pressed = true;
       break;
     case 83:
-      /* eslint-disable */(_console3 = console).log.apply(_console3, _toConsumableArray(oo_oo("8a6d7e36_2", "down")));
+      /* eslint-disable */(_console3 = console).log.apply(_console3, _toConsumableArray(oo_oo("896d9666_2", "down")));
       break;
     case 68:
-      /* eslint-disable */(_console4 = console).log.apply(_console4, _toConsumableArray(oo_oo("8a6d7e36_3", "right")));
+      /* eslint-disable */(_console4 = console).log.apply(_console4, _toConsumableArray(oo_oo("896d9666_3", "right")));
       keys.right.pressed = true;
       break;
     case 87:
-      /* eslint-disable */(_console5 = console).log.apply(_console5, _toConsumableArray(oo_oo("8a6d7e36_4", "up")));
+      /* eslint-disable */(_console5 = console).log.apply(_console5, _toConsumableArray(oo_oo("896d9666_4", "up")));
       player.velocity.y -= 25;
       break;
   }
@@ -403,18 +403,18 @@ addEventListener("keyup", function (_ref4) {
   var keyCode = _ref4.keyCode;
   switch (keyCode) {
     case 65:
-      /* eslint-disable */(_console6 = console).log.apply(_console6, _toConsumableArray(oo_oo("8a6d7e36_5", "left")));
+      /* eslint-disable */(_console6 = console).log.apply(_console6, _toConsumableArray(oo_oo("896d9666_5", "left")));
       keys.left.pressed = false;
       break;
     case 83:
-      /* eslint-disable */(_console7 = console).log.apply(_console7, _toConsumableArray(oo_oo("8a6d7e36_6", "down")));
+      /* eslint-disable */(_console7 = console).log.apply(_console7, _toConsumableArray(oo_oo("896d9666_6", "down")));
       break;
     case 68:
-      /* eslint-disable */(_console8 = console).log.apply(_console8, _toConsumableArray(oo_oo("8a6d7e36_7", "right")));
+      /* eslint-disable */(_console8 = console).log.apply(_console8, _toConsumableArray(oo_oo("896d9666_7", "right")));
       keys.right.pressed = false;
       break;
     case 87:
-      /* eslint-disable */(_console9 = console).log.apply(_console9, _toConsumableArray(oo_oo("8a6d7e36_8", "up")));
+      /* eslint-disable */(_console9 = console).log.apply(_console9, _toConsumableArray(oo_oo("896d9666_8", "up")));
       //player.velocity.y -= 20;
       break;
   }
